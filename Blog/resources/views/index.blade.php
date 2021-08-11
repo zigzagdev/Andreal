@@ -91,7 +91,7 @@
             </div>
         </div>
         <div>
-            <img src="https://cdn.pixabay.com/photo/2014/05/03/01/03/laptop-336704_960_720.jpg" alt="">
+            <img src="https://cdn.pixabay.com/photo/2015/04/20/13/17/work-731198_1280.jpg" alt="">
         </div>
     </div>
 @endsection
