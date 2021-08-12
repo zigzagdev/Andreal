@@ -17,6 +17,18 @@
        <h2 class="text-gray-600 font-bold text-3xl pb-4">
          Create how to use own blog .
        </h2>
+
+       <span class="text-gray-550">
+         By<span class="font-bold obliqu text-gray-800">Code with Diary</span>, 10 days ago .
+       </span>
+
+       <p class="text-xl text-gray-700  pt-8 pb-10 leading-8 font-light">
+         for example .
+       </p>
+
+       <a href="" class="uppercase bg-red-600 text-gray-100 font-extrabold py-4 px-8 rounded-3xl">
+          Keep Reading
+       </a>
      </div>
     </div>
 
