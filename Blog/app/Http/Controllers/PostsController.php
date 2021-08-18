@@ -9,13 +9,18 @@ use Cviebrock\EloquentSluggable\Services\SlugService;
 class PostsController extends Controller
 {
     public function __construct()
-     {
-        $this->middleware('auth', ['except' => ['index', 'show']]);
-     }
-
-  public  function  index()
     {
-      return view('blog.index')
-         -> with('posts',Post::orderBy('updated_at','DESC')->get()) ;
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
+
+    public function index()
+    {
+        return view('blog.index')
+            -> with('posts',Post::orderBy('updated_at','DESC')->get())  ;
+    }
+
+    public function create()
+    {
+        return view('blog.create');
     }
 }
