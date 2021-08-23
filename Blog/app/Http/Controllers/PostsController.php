@@ -37,7 +37,7 @@ class PostsController extends Controller
 
        $request->image->move(public_path('images'),$newImageName);
        $slug = SlugService::createSlug(Post::class,'slug',$request->title);
-       
+
 
        Post::create([
          'title' => $request->input('title'),
@@ -50,5 +50,11 @@ class PostsController extends Controller
 
        return redirect('/blog')
          ->with('message','Your post was posted correctly.');
+    }
+
+    public function show($slug)
+    {
+        return view('blog.show')
+          ->with('post',Post::where('slug',$slug)->first());
     }
 }
