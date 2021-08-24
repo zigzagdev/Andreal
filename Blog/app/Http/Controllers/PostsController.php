@@ -52,9 +52,28 @@ class PostsController extends Controller
          ->with('message','Your post was posted correctly.');
     }
 
-    public function show($slug)
+    public function edit($slug)
     {
-        return view('blog.show')
+        return view('blog.edit')
           ->with('post',Post::where('slug',$slug)->first());
+    }
+
+    public function update(Request $request,$slug)
+    {
+       $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+       ]);
+
+      Post::where('slug',$slug)
+        ->  update([
+            'title' => $request->input('title'),
+            'content' => $request->input('content'),
+            'slug' => SlugService::createSlug(Post::class,'slug',$request->title),
+            'user_id' => auth()->user()->id
+        ]);
+
+        return redirect('/blog')
+            ->with('message','Your post was updated correctly.');
     }
 }
