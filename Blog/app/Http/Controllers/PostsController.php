@@ -52,6 +52,12 @@ class PostsController extends Controller
          ->with('message','Your post was posted correctly.');
     }
 
+    public function show($slug)
+    {
+        return view('blog.show')
+            ->with('post', Post::where('slug', $slug)->first());
+    } 
+
     public function edit($slug)
     {
         return view('blog.edit')
@@ -75,5 +81,14 @@ class PostsController extends Controller
 
         return redirect('/blog')
             ->with('message','Your post was updated correctly.');
+    }
+
+    public function destroy($slug)
+    {
+      $post = Post::where('slug',$slug);
+      $post->delete();
+
+      return redirect('/blog')
+        ->with('message','Your post was deleted correctly! ');
     }
 }

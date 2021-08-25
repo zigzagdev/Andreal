@@ -17,6 +17,10 @@
         <p class="text-xl text-gray-700 pt-8 pb-10 leading-8 font-light">　
             {{ $post -> content }}
         </p>
+
+        <div class="m-auto">
+            <img src="{{ asset('images/' . $post->image_path) }}" alt="">
+        </div>
     </div>
 
 @endsection
